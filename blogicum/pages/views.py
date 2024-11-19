@@ -14,16 +14,16 @@ class RulesTemplateView(TemplateView):
 
 
 def permission_denied(request, exception):
-    return render(request, 'pages/403.html', HttpResponseForbidden)
+    return render(request, 'pages/403.html', status=HttpResponseForbidden.status_code)
 
 
 def csrf_failure(request, reason=''):
-    return render(request, 'pages/403csrf.html', HttpResponseForbidden)
+    return render(request, 'pages/403csrf.html', status=HttpResponseForbidden.status_code)
 
 
 def page_not_found(request, exception):
-    return render(request, 'pages/404.html', HttpResponseNotFound)
+    return render(request, 'pages/404.html', status=HttpResponseNotFound.status_code)
 
 
 def server_error(request):
-    return render(request, 'pages/500.html', HttpResponseServerError)
+    return render(request, 'pages/500.html', status=HttpResponseServerError.status_code)
